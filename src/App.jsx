@@ -4,12 +4,12 @@ import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
 import Experience from './components/Experience.jsx';
 import Footer from './components/Footer.jsx';
-import Intro from './components/Intro.jsx'; // Re-enabled Intro import
+import Intro from './components/Intro.jsx';
 
 
 function App() {
   
-  const [showIntro, setShowIntro] = useState(true); // Re-enabled showIntro state
+  const [showIntro, setShowIntro] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedExperience, setSelectedExperience] = useState(null);
   
@@ -19,29 +19,20 @@ function App() {
       setShowIntro(false);
     }, 3000);
 
-    // Re-enabled scroll handling (if needed, otherwise remove)
-    // const handleScroll = () => {
-    //   setIsScrolled(window.scrollY > 50);
-    // };
-    // window.addEventListener('scroll', handleScroll);
-    // return () => {
-    //   clearTimeout(timer);
-    //   window.removeEventListener('scroll', handleScroll);
-    // };
-    return () => clearTimeout(timer); // Clean up timer
+    return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => { // New useEffect for scrolling
+  useEffect(() => {
     if (selectedProject || selectedExperience) {
       document.getElementById('hero-banner-section')?.scrollIntoView({ behavior: 'smooth' });
     }
     
-  }, [selectedProject, selectedExperience]); // Dependency array
+  }, [selectedProject, selectedExperience]);
 
   return (
     <div className="w-full min-h-screen bg-[#141414]">
-      {showIntro && <Intro />} {/* Re-enabled Intro component */}
-      {!showIntro && ( // Re-enabled conditional rendering
+      {showIntro && <Intro />}
+      {!showIntro && (
         <>
           <main className="relative">
             <div className="relative">

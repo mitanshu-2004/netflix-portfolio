@@ -4,9 +4,7 @@ const Intro = () => {
   const [animationState, setAnimationState] = useState('initial');
 
   useEffect(() => {
-    // Start the zoom animation after a short delay
     setTimeout(() => setAnimationState('zoom'), 500);
-    // Start the fade out animation
     setTimeout(() => setAnimationState('fadeOut'), 2500);
   }, []);
 

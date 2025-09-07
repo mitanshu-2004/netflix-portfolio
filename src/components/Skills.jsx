@@ -1,6 +1,6 @@
-import React from 'react'; // Removed useState
+import React from 'react';
 import { skillsData } from '../data';
-import * as LucideIcons from 'lucide-react'; // Removed specific Lucide icon imports
+import * as LucideIcons from 'lucide-react';
 
 const IconBackground = ({ icon }) => {
   const Icon = LucideIcons[icon];
@@ -15,7 +15,7 @@ const IconBackground = ({ icon }) => {
 const SkillCard = ({ skillCategory, onSkillClick }) => {
   return (
     <div
-      className="netflix-card w-full sm:w-[280px] md:w-[320px] aspect-[16/9] rounded-lg overflow-hidden relative
+      className="netflix-card w-[350px] aspect-[16/9] rounded-lg overflow-hidden relative
                  bg-netflix-black transform transition-all duration-300 group-hover:z-20 group
                  border-2 border-transparent cursor-default !important group-hover:transform-none"
     >
@@ -44,8 +44,6 @@ const SkillCard = ({ skillCategory, onSkillClick }) => {
 };
 
 const Skills = ({ setSelectedProject }) => {
-  
-
   return (
     <div className="relative mt-0">
       <div className="relative group netflix-carousel-group">

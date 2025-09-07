@@ -1,6 +1,6 @@
 import React from 'react';
 import { aboutData } from '../data';
-import { Play, Info } from 'lucide-react'; // Removed MonitorPlay, Github
+import { Play, Info } from 'lucide-react';
 
 const HeroBanner = ({
   selectedProject,
@@ -16,7 +16,7 @@ const HeroBanner = ({
 
   return (
     <div
-      id="hero-banner-section" // Added ID
+      id="hero-banner-section"
       className={`relative w-full min-h-[60vh] max-h-[80vh] md:h-[85vh] ${
         selectedItem ? 'h-[80vh]' : ''
       } flex items-center justify-center sm:justify-start text-white transition-all duration-500 ease-in-out border-b-8 border-[#222] overflow-hidden z-0 bg-netflix-dark-gray}`}

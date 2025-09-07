@@ -1,4 +1,4 @@
-import React from 'react'; // Removed useState
+import React from 'react';
 import { roboticsProjects, softwareProjects } from '../data';
 import Project from './Project';
 
