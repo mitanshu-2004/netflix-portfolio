@@ -4,17 +4,16 @@ const Intro = () => {
   const [animationState, setAnimationState] = useState('initial');
 
   useEffect(() => {
-    setTimeout(() => setAnimationState('zoom'), 500);
-    setTimeout(() => setAnimationState('fadeOut'), 2500);
+    // Start the fade out and grow animation after a delay
+    setTimeout(() => setAnimationState('fadeAndGrow'), 1000); // Start fading/growing after 1 second
   }, []);
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black flex justify-center items-center z-[9999]">
       <div className={`
         relative transition-all duration-[2000ms] ease-in-out transform
-        ${animationState === 'initial' ? 'scale-100 opacity-0' : ''}
-        ${animationState === 'zoom' ? 'scale-150 opacity-100' : ''}
-        ${animationState === 'fadeOut' ? 'scale-[200] opacity-0' : ''}
+        ${animationState === 'initial' ? 'scale-100 opacity-100' : ''} /* Start visible and normal size */
+        ${animationState === 'fadeAndGrow' ? 'scale-[200] opacity-0' : ''} /* Scale up and fade out */
       `}>
         <h1 className="relative font-netflix font-black tracking-wider text-[8vw] text-netflix-red">
           {/* Each letter with its own shine effect */}

@@ -12,6 +12,9 @@ export const aboutData = {
     "AI & Machine Learning",
     "Full-Stack Development",
   ],
+  introBackgroundImage: '/bg.gif', // Added for HeroBanner introduction background
+  fallbackIntroIcon: 'MonitorPlay', // Fallback icon for HeroBanner introduction
+  fallbackImageOffIcon: 'ImageOff', // Fallback icon when image is not available
 };
 
 export const experienceData = [
@@ -24,6 +27,7 @@ export const experienceData = [
     live: "",
     hasLive: false,
     backgroundIcon: "BrainCircuit",
+    image: '/assets/experience-sarthakai.gif', // Placeholder GIF
   },
   {
     title: "Robotics Intern - Nextup Robotics",
@@ -34,6 +38,7 @@ export const experienceData = [
     live: "",
     hasLive: false,
     backgroundIcon: "Bot",
+    image: '/assets/experience-nextup.gif', // Placeholder GIF
   },
   {
     title: "Core Member - A.T.O.M Robotics",
@@ -44,6 +49,7 @@ export const experienceData = [
     live: "",
     hasLive: false,
     backgroundIcon: "Users",
+    image: '/assets/experience-atom.gif', // Placeholder GIF
   },
 ];
 
@@ -58,6 +64,7 @@ export const roboticsProjects = [
     hasGithub: true,
     hasLive: false,
     backgroundIcon: "Hand",
+    image: '/arm.png', // Placeholder GIF
   },
   {
     title: "HEXAPOD Walking Robot",
@@ -68,6 +75,7 @@ export const roboticsProjects = [
     hasGithub: true,
     hasLive: false,
     backgroundIcon: "Bug",
+    image: '/hexapod.png', // Placeholder GIF
   },
   {
     title: "SENTINEL - Mesh Safety Network",
@@ -77,6 +85,7 @@ export const roboticsProjects = [
     hasGithub: false,
     hasLive: false,
     backgroundIcon: "Network",
+    image: '/sentinel.png', // Placeholder GIF
   },
 ];
 
@@ -90,6 +99,7 @@ export const softwareProjects = [
     github: "https://github.com/mitanshu-2004/memory",
     hasLive: false,
     backgroundIcon: "Brain",
+    image: '/assets/project-memory-vault.jpg', // Placeholder image
   },
   {
     title: "Stock Analysis Platform",
@@ -101,6 +111,7 @@ export const softwareProjects = [
     hasGithub: true,
     hasLive: true,
     backgroundIcon: "LineChart",
+    image: '/assets/project-stock-analysis.jpg', // Placeholder image
   },
   {
     title: "Interactive Chess Platform",
@@ -112,6 +123,7 @@ export const softwareProjects = [
     hasGithub: true,
     hasLive: true,
     backgroundIcon: "Puzzle",
+    image: '/assets/project-chess.jpg', // Placeholder image
   },
 ];
 

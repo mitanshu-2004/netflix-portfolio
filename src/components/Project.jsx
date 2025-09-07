@@ -1,6 +1,6 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import * as LucideIcons from 'lucide-react';
+import { aboutData } from '../data'; // Import aboutData
 
 const IconBackground = ({ icon }) => {
   const IconComponent = LucideIcons[icon];
@@ -15,6 +15,19 @@ const IconBackground = ({ icon }) => {
 };
 
 const Project = ({ project, onProjectClick }) => {
+  const [bgImageLoaded, setBgImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (project.image) {
+      const img = new Image();
+      img.src = project.image;
+      img.onload = () => setBgImageLoaded(true);
+      img.onerror = () => setBgImageLoaded(false);
+    } else {
+      setBgImageLoaded(false); // No image provided
+    }
+  }, [project.image]);
+
   return (
     <div
       onClick={() => {
@@ -29,7 +42,14 @@ const Project = ({ project, onProjectClick }) => {
       tabIndex="0"
       className="group relative w-full h-full overflow-hidden rounded-lg cursor-pointer bg-netflix-black"
     >
-      <IconBackground icon={project.backgroundIcon} />
+      {bgImageLoaded && project.image ? (
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${project.image})` }}
+        />
+      ) : (
+        <IconBackground icon={project.backgroundIcon || aboutData.fallbackImageOffIcon} />
+      )}
       <div className="netflix-card-shine" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
       <div className="absolute inset-x-0 top-0 p-4">

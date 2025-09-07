@@ -1,6 +1,6 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import * as LucideIcons from 'lucide-react';
+import { aboutData } from '../data'; // Import aboutData
 
 const IconBackground = ({ icon }) => {
   const Icon = LucideIcons[icon];
@@ -13,6 +13,19 @@ const IconBackground = ({ icon }) => {
 };
 
 const ExperienceCard = ({ experience, onExperienceClick }) => {
+  const [bgImageLoaded, setBgImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (experience.image) {
+      const img = new Image();
+      img.src = experience.image;
+      img.onload = () => setBgImageLoaded(true);
+      img.onerror = () => setBgImageLoaded(false);
+    } else {
+      setBgImageLoaded(false); // No image provided
+    }
+  }, [experience.image]);
+
   return (
     <div
       onClick={() => onExperienceClick(experience)}
@@ -25,7 +38,14 @@ const ExperienceCard = ({ experience, onExperienceClick }) => {
       tabIndex="0"
       className="group relative w-full h-full overflow-hidden rounded-lg cursor-pointer bg-netflix-black"
     >
-      <IconBackground icon={experience.backgroundIcon} />
+      {bgImageLoaded && experience.image ? (
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${experience.image})` }}
+        />
+      ) : (
+        <IconBackground icon={experience.backgroundIcon || aboutData.fallbackImageOffIcon} />
+      )}
       <div className="netflix-card-shine" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
       <div className="absolute inset-x-0 top-0 p-4">
