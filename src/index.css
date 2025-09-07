@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    @apply font-netflix bg-netflix-black text-white antialiased;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Custom Scrollbar Styles for the entire page */
+  body::-webkit-scrollbar {
+    width: 8px;
+    background-color: #222; /* Dark background for the scrollbar track */
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #888; /* Gray thumb */
+    border-radius: 4px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker gray on hover */
+  }
+}
+
+@layer utilities {
+  /* Removed scrollbar-hide utility as we want visible scrollbars */
+  /* .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  } */
+
+  .hero-gradient {
+    background: linear-gradient(77deg, rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0) 85%);
+  }
+
+  .netflix-button {
+    @apply transition-colors duration-200 ease-in-out hover:bg-white/10;
+  }
+
+  .project-image-overlay {
+    @apply bg-gradient-to-t from-netflix-black to-transparent;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 3;
+  }
+
+  .hero-banner-overlay {
+    @apply bg-gradient-to-tr from-black/90 via-black/40 to-transparent;
+  }
+
+  .modal-backdrop-blur {
+    @apply backdrop-blur-sm;
+  }
+
+  .experience-card-overlay::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10;
+  }
+
+  .netflix-card {
+    @apply relative flex-none transition-transform duration-300 ease-in-out;
+    scroll-snap-align: start;
+  }
+
+  .netflix-card:hover {
+    @apply scale-110 z-20;
+    transition-delay: 300ms;
+  }
+
+  .netflix-card-content {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  }
+
+  .netflix-card:hover .netflix-card-content {
+    @apply opacity-100;
+    transition-delay: 500ms;
+  }
+
+  .netflix-hover-gradient {
+    @apply absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 transition-all duration-300;
+  }
+
+  .netflix-card:hover .netflix-hover-gradient {
+    @apply opacity-100;
+  }
+
+  .netflix-carousel {
+    @apply flex overflow-x-auto gap-4 pb-8; /* Removed scrollbar-hide */
+    scroll-behavior: smooth;
+
+    /* Custom Scrollbar Styles for horizontal carousels */
+    &::-webkit-scrollbar {
+      height: 8px; /* Height for horizontal scrollbar */
+      background-color: #222;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+  }
+
+  .netflix-carousel-nav {
+    @apply absolute top-1/2 -translate-y-1/2 bg-black/50 p-4 rounded-full opacity-0 transition-all duration-300 z-30 hover:bg-netflix-red/80;
+  }
+
+  .netflix-carousel-group:hover .netflix-carousel-nav {
+    @apply opacity-100;
+  }
+
+  .netflix-text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .netflix-button-glow {
+    @apply transition-all duration-300;
+  }
+
+  .netflix-button-glow:hover {
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+    @apply transform scale-105;
+  }
+
+  .netflix-card-shine {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.03) 30%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.03) 70%,
+      transparent 100%
+    );
+  }
+
+  .netflix-card:hover .netflix-card-shine {
+    @apply opacity-100;
+  }
+
+  .netflix-title-appear {
+    @apply transform transition-all duration-300;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .netflix-card:hover .netflix-title-appear {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .netflix-skill-badge {
+    @apply text-xs px-2 py-1 rounded bg-netflix-red/20 text-netflix-red transition-all duration-300;
+  }
+
+  .netflix-skill-badge:hover {
+    @apply bg-netflix-red text-white transform scale-110;
+  }
+
+  .netflix-backdrop {
+    @apply absolute inset-0 transition-all duration-500;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  
+}
+
+@layer components {
+  .modal-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .modal-enter {
+    @apply opacity-0 scale-90;
+  }
+
+  .modal-enter-active {
+    @apply opacity-100 scale-100;
+  }
+
+  .modal-exit {
+    @apply opacity-100 scale-100;
+  }
+
+  .modal-exit-active {
+    @apply opacity-0 scale-90;
+  }
+
+  .netflix-card {
+    @apply transition-all duration-300 ease-out hover:z-10;
+  }
+}

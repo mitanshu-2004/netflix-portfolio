@@ -1,0 +1,36 @@
+import React from 'react'; // Removed useState
+import { experienceData } from '../data';
+import ExperienceCard from './ExperienceCard';
+
+
+const Experience = ({ setSelectedProject, setSelectedExperience }) => {
+
+  return (
+    <div className="relative mt-0">
+      <div className="relative group netflix-carousel-group">
+        <div 
+          id="experience-carousel"
+          className="netflix-carousel"
+        >
+          {experienceData.map((experience, index) => (
+            <div 
+              key={index}
+              className="netflix-card w-full sm:w-[300px] md:w-[350px] aspect-[16/9] bg-netflix-dark-gray rounded-lg overflow-hidden"
+            >
+              <ExperienceCard
+                experience={experience}
+                onExperienceClick={() => {
+                  setSelectedExperience(experience);
+                  setSelectedProject(null);
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        
+      </div>
+    </div>
+  );
+};
+
+export default Experience;
