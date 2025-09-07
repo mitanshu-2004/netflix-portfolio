@@ -20,7 +20,7 @@ const Intro = () => {
       `}>
         <h1 className="relative font-netflix font-black tracking-wider text-[8vw] text-netflix-red">
           {/* Each letter with its own shine effect */}
-          {'Mitanshu Goel'.split('').map((letter, index) => (
+          {'MITANSHU GOEL'.split('').map((letter, index) => (
             <span 
               key={index}
               className={`

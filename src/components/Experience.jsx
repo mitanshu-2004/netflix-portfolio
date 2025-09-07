@@ -15,7 +15,7 @@ const Experience = ({ setSelectedProject, setSelectedExperience }) => {
           {experienceData.map((experience, index) => (
             <div 
               key={index}
-              className="netflix-card w-full sm:w-[300px] md:w-[350px] aspect-[16/9] bg-netflix-dark-gray rounded-lg overflow-hidden"
+              className="netflix-card w-full sm:w-[280px] md:w-[320px] aspect-[16/9] bg-netflix-dark-gray rounded-lg overflow-hidden"
             >
               <ExperienceCard
                 experience={experience}

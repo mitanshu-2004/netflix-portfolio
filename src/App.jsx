@@ -4,16 +4,32 @@ import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
 import Experience from './components/Experience.jsx';
 import Footer from './components/Footer.jsx';
+import Intro from './components/Intro.jsx'; // Re-enabled Intro import
 
 
 function App() {
   
-  
+  const [showIntro, setShowIntro] = useState(true); // Re-enabled showIntro state
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedExperience, setSelectedExperience] = useState(null);
   
 
-  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 3000);
+
+    // Re-enabled scroll handling (if needed, otherwise remove)
+    // const handleScroll = () => {
+    //   setIsScrolled(window.scrollY > 50);
+    // };
+    // window.addEventListener('scroll', handleScroll);
+    // return () => {
+    //   clearTimeout(timer);
+    //   window.removeEventListener('scroll', handleScroll);
+    // };
+    return () => clearTimeout(timer); // Clean up timer
+  }, []);
 
   useEffect(() => { // New useEffect for scrolling
     if (selectedProject || selectedExperience) {
@@ -24,8 +40,8 @@ function App() {
 
   return (
     <div className="w-full min-h-screen bg-[#141414]">
-      
-      
+      {showIntro && <Intro />} {/* Re-enabled Intro component */}
+      {!showIntro && ( // Re-enabled conditional rendering
         <>
           <main className="relative">
             <div className="relative">
@@ -59,7 +75,7 @@ function App() {
             </div>
           </main>
         </>
-      
+      )}
     </div>
   );
 }

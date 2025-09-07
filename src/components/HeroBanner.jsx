@@ -17,9 +17,9 @@ const HeroBanner = ({
   return (
     <div
       id="hero-banner-section" // Added ID
-      className={`relative w-full min-h-[60vh] max-h-[80vh] md:h-[95vh] ${
+      className={`relative w-full min-h-[60vh] max-h-[80vh] md:h-[85vh] ${
         selectedItem ? 'h-[80vh]' : ''
-      } flex items-center justify-start text-white transition-all duration-500 ease-in-out border-b-8 border-[#222] overflow-hidden z-0 bg-netflix-dark-gray}`}
+      } flex items-center justify-center sm:justify-start text-white transition-all duration-500 ease-in-out border-b-8 border-[#222] overflow-hidden z-0 bg-netflix-dark-gray}`}
     >
       
       {selectedItem && (
@@ -35,7 +35,7 @@ const HeroBanner = ({
       <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent opacity-85"></div>
       <div className="absolute inset-0 bg-gradient-to-l from-black via-transparent to-transparent opacity-85"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-netflix-red/5"></div>
-      <div className="relative z-10 max-w-[1200px] w-full px-[4%] py-8 md:py-16">
+      <div className="relative z-10 max-w-[1200px] w-full px-4 sm:px-[4%] py-8 md:py-16">
         {selectedItem ? (
           <>
             <div className="flex gap-4 mb-6"> 
@@ -44,14 +44,14 @@ const HeroBanner = ({
                   setSelectedProject(null); 
                   setSelectedExperience(null); 
                 }}
-                className="bg-netflix-red text-white border-none py-2 px-6 rounded font-medium text-base hover:bg-[#f40612] transition-colors duration-300"
+                className="bg-netflix-red text-white border-none py-2 px-4 sm:py-3 sm:px-6 rounded font-medium text-base hover:bg-[#f40612] transition-colors duration-300"
               >
                 Home
               </button>
               
             </div>
             
-            <div className="flex flex-col items-start max-w-[650px]">
+            <div className="flex flex-col items-start max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-4 leading-tight">{selectedItem.title}</h2>
               <p className="text-lg text-netflix-light-gray mb-6">{selectedItem.description}</p>
               <div className="mb-8">
@@ -67,13 +67,13 @@ const HeroBanner = ({
                   <>
                     {selectedItem.hasLive && (
                       <a href={selectedItem.live} target="_blank" rel="noopener noreferrer" 
-                        className="bg-netflix-red text-white py-2 px-6 sm:py-3 sm:px-8 rounded font-medium text-base inline-flex items-center gap-2 hover:bg-[#f40612] transition-colors duration-300">
+                        className="bg-netflix-red text-white py-2 px-4 sm:py-3 sm:px-6 rounded font-medium text-base inline-flex items-center gap-2 hover:bg-[#f40612] transition-colors duration-300"> 
                         <Play size={24} /> Play Demo
                       </a>
                     )}
                     {selectedItem.hasGithub && (
                       <a href={selectedItem.github} target="_blank" rel="noopener noreferrer" 
-                        className="bg-[rgba(109,109,110,0.7)] text-white py-2 px-6 sm:py-3 sm:px-8 rounded font-medium text-base inline-flex items-center gap-2 hover:bg-[rgba(109,109,110,0.4)] transition-colors duration-300">
+                        className="bg-[rgba(109,109,110,0.7)] text-white py-2 px-4 sm:py-3 sm:px-6 rounded font-medium text-base inline-flex items-center gap-2 hover:bg-[rgba(109,109,110,0.4)] transition-colors duration-300"> 
                         <Info size={24} /> More Info
                       </a>
                     )}
@@ -83,11 +83,11 @@ const HeroBanner = ({
             </div>
           </>
         ) : (
-          <div className="max-w-[650px]">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold text-white mb-4 leading-none netflix-text-shadow">
+          <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold text-white mb-4 leading-none netflix-text-shadow">
                 {aboutData.name}
               </h1>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] text-netflix-red font-bold mb-6 netflix-text-shadow">
+              <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-[2.5rem] text-netflix-red font-bold mb-6 netflix-text-shadow">
                 {aboutData.title}
               </h2>
               <p className="text-lg sm:text-xl text-netflix-light-gray mb-8 leading-relaxed">
