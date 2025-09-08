@@ -1,6 +1,6 @@
 import React from 'react';
 import { experienceData } from '../data';
-import ExperienceCard from './ExperienceCard';
+import InfoCard from './InfoCard';
 
 
 const Experience = ({ setSelectedProject, setSelectedExperience }) => {
@@ -17,9 +17,9 @@ const Experience = ({ setSelectedProject, setSelectedExperience }) => {
               key={index}
               className="netflix-card w-full sm:w-[280px] md:w-[320px] aspect-[16/9] bg-netflix-dark-gray rounded-lg overflow-hidden"
             >
-              <ExperienceCard
-                experience={experience}
-                onExperienceClick={() => {
+              <InfoCard
+                info={experience}
+                onClick={() => {
                   setSelectedExperience(experience);
                   setSelectedProject(null);
                 }}

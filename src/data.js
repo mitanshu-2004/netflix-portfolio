@@ -27,7 +27,7 @@ export const experienceData = [
     live: "",
     hasLive: false,
     backgroundIcon: "BrainCircuit",
-    image: '/assets/experience-sarthakai.gif', // Placeholder GIF
+    image: '/sarthhak.png', // Placeholder GIF
   },
   {
     title: "Robotics Intern - Nextup Robotics",
@@ -38,7 +38,7 @@ export const experienceData = [
     live: "",
     hasLive: false,
     backgroundIcon: "Bot",
-    image: '/assets/experience-nextup.gif', // Placeholder GIF
+    image: '/nextup.png', // Placeholder GIF
   },
   {
     title: "Core Member - A.T.O.M Robotics",
@@ -49,7 +49,7 @@ export const experienceData = [
     live: "",
     hasLive: false,
     backgroundIcon: "Users",
-    image: '/assets/experience-atom.gif', // Placeholder GIF
+    image: '/atom.png', // Placeholder GIF
   },
 ];
 
@@ -99,7 +99,7 @@ export const softwareProjects = [
     github: "https://github.com/mitanshu-2004/memory",
     hasLive: false,
     backgroundIcon: "Brain",
-    image: '/assets/project-memory-vault.jpg', // Placeholder image
+    image: '/memory.png', // Placeholder image
   },
   {
     title: "Stock Analysis Platform",
@@ -111,7 +111,7 @@ export const softwareProjects = [
     hasGithub: true,
     hasLive: true,
     backgroundIcon: "LineChart",
-    image: '/assets/project-stock-analysis.jpg', // Placeholder image
+    image: '/stock.png', // Placeholder image
   },
   {
     title: "Interactive Chess Platform",
@@ -123,7 +123,7 @@ export const softwareProjects = [
     hasGithub: true,
     hasLive: true,
     backgroundIcon: "Puzzle",
-    image: '/assets/project-chess.jpg', // Placeholder image
+    image: '/chess.png', // Placeholder image
   },
 ];
 
@@ -132,6 +132,7 @@ export const skillsData = [
   {
     title: "Programming Languages",
     backgroundIcon: "Code",
+    image: "/programming.png",
     skills: [
       { name: "Python", icon: "Code" },
       { name: "C++", icon: "SquareCode" },
@@ -143,6 +144,7 @@ export const skillsData = [
   {
     title: "Robotics & Computer Vision",
     backgroundIcon: "Cpu",
+    image: "/robotics.png",
     skills: [
       { name: "ROS", icon: "Bot" },
       { name: "MoveIt", icon: "Move" },
@@ -154,6 +156,7 @@ export const skillsData = [
   {
     title: "Web Development",
     backgroundIcon: "Globe",
+    image: "/web.png",
     skills: [
       { name: "React", icon: "Atom" },
       { name: "FastAPI", icon: "Activity" },
@@ -164,6 +167,7 @@ export const skillsData = [
   {
     title: "AI/ML & Scientific Computing",
     backgroundIcon: "Brain",
+    image: "/ai.png",
     skills: [
       { name: "Pandas", icon: "Table" },
       { name: "NumPy", icon: "Sigma" },
@@ -174,6 +178,7 @@ export const skillsData = [
   {
     title: "Databases & Data",
     backgroundIcon: "Database",
+    image: "/database.png",
     skills: [
       { name: "PostgreSQL", icon: "Database" },
       { name: "MongoDB", icon: "Database" },
@@ -184,6 +189,7 @@ export const skillsData = [
   {
     title: "Tools & Platforms",
     backgroundIcon: "Wrench",
+    image: "/tools.png",
     skills: [
       { name: "Git", icon: "GitBranch" },
       { name: "Docker", icon: "Package" },

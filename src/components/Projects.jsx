@@ -1,6 +1,6 @@
 import React from 'react';
 import { roboticsProjects, softwareProjects } from '../data';
-import Project from './Project';
+import InfoCard from './InfoCard';
 
 
 const Projects = ({ setSelectedProject, setSelectedExperience }) => {
@@ -18,9 +18,9 @@ const Projects = ({ setSelectedProject, setSelectedExperience }) => {
               key={index}
               className="netflix-card w-full sm:w-[280px] md:w-[320px] aspect-[16/9] bg-netflix-dark-gray rounded-lg overflow-hidden"
             >
-              <Project
-                project={project}
-                onProjectClick={(project) => {
+              <InfoCard
+                info={project}
+                onClick={(project) => {
                   
                   setSelectedProject(project);
                   setSelectedExperience(null);
@@ -43,9 +43,9 @@ const Projects = ({ setSelectedProject, setSelectedExperience }) => {
               key={index}
               className="netflix-card w-full sm:w-[280px] md:w-[320px] aspect-[16/9] bg-netflix-dark-gray rounded-lg overflow-hidden"
             >
-              <Project
-                project={project}
-                onProjectClick={(project) => {
+              <InfoCard
+                info={project}
+                onClick={(project) => {
                   
                   setSelectedProject(project);
                   setSelectedExperience(null);

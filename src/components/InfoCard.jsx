@@ -12,55 +12,60 @@ const IconBackground = ({ icon }) => {
   );
 };
 
-const ExperienceCard = ({ experience, onExperienceClick }) => {
+const InfoCard = ({ info, onClick }) => {
   const [bgImageLoaded, setBgImageLoaded] = useState(false);
 
   useEffect(() => {
-    if (experience.image) {
+    if (info.image) {
       const img = new Image();
-      img.src = experience.image;
+      img.src = info.image;
       img.onload = () => setBgImageLoaded(true);
       img.onerror = () => setBgImageLoaded(false);
     } else {
       setBgImageLoaded(false); // No image provided
     }
-  }, [experience.image]);
+  }, [info.image]);
+
+  const cardProps = onClick ? {
+    onClick: () => onClick(info),
+    onKeyDown: (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        onClick(info);
+      }
+    },
+    role: 'button',
+    tabIndex: 0,
+    className: 'group relative w-full h-full overflow-hidden rounded-lg cursor-pointer bg-netflix-black'
+  } : {
+    className: 'group relative w-full h-full overflow-hidden rounded-lg bg-netflix-black'
+  };
+
 
   return (
-    <div
-      onClick={() => onExperienceClick(experience)}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          onExperienceClick(experience);
-        }
-      }}
-      role="button"
-      tabIndex="0"
-      className="group relative w-full h-full overflow-hidden rounded-lg cursor-pointer bg-netflix-black"
-    >
-      {bgImageLoaded && experience.image ? (
+    <div {...cardProps}>
+      {bgImageLoaded && info.image ? (
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${experience.image})` }}
+          style={{ backgroundImage: `url(${info.image})` }}
         />
       ) : (
-        <IconBackground icon={experience.backgroundIcon || aboutData.fallbackImageOffIcon} />
+        <IconBackground icon={info.backgroundIcon || aboutData.fallbackImageOffIcon} />
       )}
       <div className="netflix-card-shine" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-90" />
       <div className="absolute inset-x-0 top-0 p-4">
-        <h3 className="text-white text-xl font-bold netflix-text-shadow mb-4">
-          {experience.title}
+        <h3 className="text-white text-xl font-bold netflix-text-shadow-strong mb-4">
+          {info.title}
         </h3>
       </div>
       <div className="absolute inset-x-0 bottom-0 p-4">
         <div className="flex flex-wrap gap-2">
-          {experience.tech?.slice(0, 3).map((tech, index) => (
+          {(info.tech || info.skills)?.slice(0, 3).map((item, index) => (
             <span 
               key={index} 
               className="netflix-skill-badge text-xs"
             >
-              {tech}
+              {item.name || item}
             </span>
           ))}
         </div>
@@ -70,4 +75,4 @@ const ExperienceCard = ({ experience, onExperienceClick }) => {
   );
 };
 
-export default ExperienceCard;
+export default InfoCard;

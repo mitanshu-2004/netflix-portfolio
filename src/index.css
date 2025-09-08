@@ -152,6 +152,10 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
+  .netflix-text-shadow-strong {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+
   .netflix-button-glow {
     @apply transition-all duration-300;
   }
