@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as LucideIcons from 'lucide-react';
-import { aboutData } from '../data'; // Import aboutData
+import { aboutData } from '../data';
 
 const IconBackground = ({ icon }) => {
   const Icon = LucideIcons[icon];
@@ -22,7 +22,7 @@ const InfoCard = ({ info, onClick }) => {
       img.onload = () => setBgImageLoaded(true);
       img.onerror = () => setBgImageLoaded(false);
     } else {
-      setBgImageLoaded(false); // No image provided
+      setBgImageLoaded(false);
     }
   }, [info.image]);
 
@@ -40,13 +40,13 @@ const InfoCard = ({ info, onClick }) => {
     className: 'group relative w-full h-full overflow-hidden rounded-lg bg-netflix-black'
   };
 
-
   return (
     <div {...cardProps}>
       {bgImageLoaded && info.image ? (
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${info.image})` }}
+        <img
+          src={info.image}
+          alt={info.title}
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
       ) : (
         <IconBackground icon={info.backgroundIcon || aboutData.fallbackImageOffIcon} />
@@ -60,9 +60,9 @@ const InfoCard = ({ info, onClick }) => {
       </div>
       <div className="absolute inset-x-0 bottom-0 p-4">
         <div className="flex flex-wrap gap-2">
-          {(info.tech || info.skills)?.slice(0, 3).map((item, index) => (
-            <span 
-              key={index} 
+          {(info.tech || info.skills)?.slice(0, 3).map((item) => (
+            <span
+              key={item.name || item}
               className="netflix-skill-badge text-xs"
             >
               {item.name || item}
@@ -70,7 +70,6 @@ const InfoCard = ({ info, onClick }) => {
           ))}
         </div>
       </div>
-      
     </div>
   );
 };

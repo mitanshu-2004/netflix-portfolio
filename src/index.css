@@ -50,15 +50,7 @@
 }
 
 @layer utilities {
-  /* Removed scrollbar-hide utility as we want visible scrollbars */
-  /* .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  } */
+  
 
   .hero-gradient {
     background: linear-gradient(77deg, rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0) 85%);
@@ -154,6 +146,10 @@
 
   .netflix-text-shadow-strong {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+
+  .netflix-text-shadow-darker {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   }
 
   .netflix-button-glow {
