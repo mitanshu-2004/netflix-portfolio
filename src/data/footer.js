@@ -2,7 +2,7 @@ export const footerData = {
   name: "Mitanshu",
   description: "Systems engineer focused on building integrated solutions that bridge hardware and software—from embedded robotics to AI-powered applications.",
   quickLinks: [
-    { name: "About", id: "hero-about" },
+    { name: "About", id: "hero-banner-section" },
     { name: "Experience", id: "experience" },
     { name: "Projects", id: "projects" },
     { name: "Skills", id: "skills" }
