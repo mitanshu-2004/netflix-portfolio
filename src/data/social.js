@@ -4,7 +4,7 @@ export const socialLinksData = [
     label: "GitHub",
   },
   {
-    href: "https://www.linkedin.com/in/mitanshu-goel-177624248",
+    href: "https://www.linkedin.com/in/mitanshugoel/",
     label: "LinkedIn",
   },
   {
